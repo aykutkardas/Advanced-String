@@ -5,9 +5,12 @@ String.prototype.format = function () {
 
     if (arguments.length) {
 
-        for (i = 0; i < arguments.length; i++)
-            temp = temp.replace('%{' + i + '}', arguments[i]);
-
+        for (i = 0; i < arguments.length; i++) {
+            temp = temp
+                .replace('%{' + i + '}', arguments[i])
+                .replace('%{}', arguments[i]);
+        }
+        
         return temp;
 
     } else return this.replace();
